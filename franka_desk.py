@@ -3,7 +3,7 @@ import copy
 import os
 import gym
 from envs.franka_desk.base_mujoco_env import BaseMujocoEnv
-from metaworld.envs.mujoco.sawyer_xyz.base import SawyerXYZEnv
+from metaworld.envs.mujoco.sawyer_xyz.sawyer_xyz_env import SawyerXYZEnv
 
 
 class FrankaDesk(BaseMujocoEnv, SawyerXYZEnv):
@@ -195,7 +195,7 @@ class FrankaDesk(BaseMujocoEnv, SawyerXYZEnv):
         # print('current', obs['state'][40])
         # print(self._goal_obj_pose[-1])
         
-        return obs, self.get_reward(), np.zeros([]), {'success': self.get_success()}
+        return obs, self.get_reward(), np.zeros([], dtype=int), {'success': self.get_success()}
 
     def update_mocap_pos(self):
         # print('mocap', self.data.mocap_pos)
